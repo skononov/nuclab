@@ -1,0 +1,105 @@
+\documentclass[10pt,a5paper]{report}
+\usepackage{mathtext}         % если нужны русские буквы в формулах
+\usepackage[T2A]{fontenc}     % внутренняя T2A кодировка TeX
+\usepackage[koi8-r]{inputenc} % отражает кодировку текста документа
+\usepackage[russian]{babel}   % переносы - можно написать english,russian
+\language=0
+
+%\textwidth 17cm
+%\textheight 26cm
+%\topmargin -2cm
+%\oddsidemargin -0.5cm
+%\evensidemargin 0cm
+%\footskip 0.8cm
+
+\textwidth 11.8cm
+\textheight 18cm
+\topmargin -1.24cm
+\headheight 0cm
+\headsep 0cm
+\oddsidemargin -1.04cm
+\footskip 0.8cm
+
+\usepackage{graphicx}
+\newcommand{\instruction}[1]{\begin{center}\fbox{\parbox{0.9\textwidth}{\sf #1}}\end{center}}
+\newsavebox{\fmbox}
+\newenvironment{instruct}[1]{
+\begin{lrbox}{\fmbox}
+\begin{minipage}{0.9\textwidth}\sf\noindent\underline{#1}\\}
+{\end{minipage}
+\end{lrbox}
+\begin{center}
+\fbox{\usebox{\fmbox}}
+\end{center}}
+\newcommand{\Cs}{\mbox{${}^{137}\mathrm{Cs}$}}
+\newcommand{\Co}{\mbox{${}^{60}$Co}}
+\newcommand{\Npe}{N_\mathrm{p.e.}}
+\newcommand{\fe}{${}^{55}\mathrm{Fe}$}
+\newcommand{\sr}{${}^{90}\mathrm{Sr}$}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\bfseries
+МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РФ\\[1ex]
+НОВОСИБИРСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ\\[0.1\textheight]
+Физический факультет\\[1ex]
+Кафедра физики элементарных частиц\\[0.2\textheight]
+{\large Описание лабораторных работ по курсу\\[1ex]
+<<Ядерный практикум>>}\\[2ex]
+\mdseries
+(методическое пособие)
+\vfill
+Новосибирск\\[1ex]
+2010
+\end{center}
+\thispagestyle{empty}
+
+\newpage
+В данном пособии приводятся методические указания по выполнению пяти лабораторных работ в рамках курса 
+<<Ядерный практикум>> для студентов 4-го курса физического факультете НГУ. Каждое описание лабораторной 
+работы имеет: краткое введение в соответствующую область экспериментальной физики и в методику, 
+применяющуюся в данной работе; перечень используемого оборудования; задания для студентов и указания
+по их выполнению; форму отчета о выполненной работе; список рекомендованной литературы для подготовки 
+к защите работы. Настоящее пособие переработано с учетом модернизации оборудования для лабораторных 
+работ и появлением новых работ на основе закупленного оборудования, по сравнению с предыдущим 
+изданием пособия.
+
+\vspace{0.2\textheight}
+\begin{center}
+Автор\\ С.А. Кононов
+
+\vspace{0.1\textheight}
+Методическое пособие подготовлено в рамках реализации\\
+Программы развития НИУ-НГУ на 2009--2018 г.г.
+\vfill
+\flushright ${}^\copyright$ Новосибирский государственный университет, 2010
+\end{center}
+\thispagestyle{empty}
+
+\end{titlepage}
+
+\renewcommand{\chaptername}{\Large Лабораторная работа \No}
+\renewcommand{\bibname}{\Large Список литературы}
+
+\chapter{\LARGE Гамма-спектрометр на основе сцинтилляционного счетчика}
+\input{laba2/content}
+
+\chapter{\LARGE Метод совпадений}
+\input{laba3/content}
+
+\chapter{\LARGE Газовый цилиндрический счётчик}
+\input{laba4/content}
+
+\chapter{\LARGE Годоскоп из стримерных трубок}
+\input{laba1/content}
+
+\chapter{\LARGE Гамма-спектрометр с детектором из особо чистого германия}
+\input{laba6/content}
+
+\appendix
+\chapter{\Large Метод наименьших квадратов}
+\input{appendix/lsm}
+
+\end{document}

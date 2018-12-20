@@ -1,0 +1,50 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{mathtext}         % если нужны русские буквы в формулах
+\usepackage[T2A]{fontenc}     % внутренняя T2A кодировка TeX
+\usepackage[koi8-r]{inputenc} % отражает кодировку текста документа
+\usepackage[russian]{babel}   % переносы - можно написать english,russian
+\language=0
+
+\textwidth 17cm
+\textheight 25cm
+\topmargin -0.04cm
+\headheight 0cm
+\headsep 0cm
+\oddsidemargin -0.54cm
+\footskip 1.2cm
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\newcommand{\instruction}[1]{\begin{center}\fbox{\parbox{0.9\textwidth}{\sf #1}}\end{center}}
+\newsavebox{\fmbox}
+\newenvironment{instruct}[1]{
+\begin{lrbox}{\fmbox}
+\begin{minipage}{0.9\textwidth}\sf\noindent\underline{#1}\\}
+{\end{minipage}
+\end{lrbox}
+\begin{center}
+\fbox{\usebox{\fmbox}}
+\end{center}}
+
+\newcommand{\Cs}{\mbox{${}^{137}\mathrm{Cs}$}}
+\newcommand{\Npe}{N_\mathrm{p.e.}}
+
+\title{\Large Лабораторная работа \No 2 \\[5cm]
+\bfseries Гамма-спектрометр на основе сцинтилляционного счетчика}
+\author{\\[2cm]\large Ядерный практикум}
+\date{\vfill\large ИЯФ СО РАН\\Новосибирск\\[5mm] 2012}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\vfil
+{\normalsize Описание работ: \url{http://kedr.inp.nsk.su/~skononov/nuclab_man.pdf}}
+\end{titlepage}
+
+\input{content}
+
+\end{document}
+

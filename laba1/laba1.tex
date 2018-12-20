@@ -1,0 +1,40 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{mathtext}         % если нужны русские буквы в формулах
+\usepackage[T2A]{fontenc}     % внутренняя T2A кодировка TeX
+\usepackage[koi8-r]{inputenc} % отражает кодировку текста документа
+\usepackage[russian]{babel}   % переносы - можно написать english,russian
+\language=0
+
+\textwidth 17cm
+\textheight 25cm
+\topmargin -0.04cm
+\headheight 0cm
+\headsep 0cm
+\oddsidemargin -0.54cm
+\footskip 1.2cm
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\title{\Large Лабораторная работа \No 1 \\[5cm]
+\bfseries Годоскоп из стримерных трубок}
+\author{\\[2cm]\large Ядерный практикум}
+\date{\vfill\large ИЯФ СО РАН\\Новосибирск\\[5mm] 2012}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\vfil
+{\normalsize Описание работ: \url{http://kedr.inp.nsk.su/~skononov/nuclab_man.pdf}}
+\end{titlepage}
+
+\input{content}
+
+\appendix
+\section{Метод наименьших квадратов}
+\input{../appendix/lsm}
+
+\end{document}

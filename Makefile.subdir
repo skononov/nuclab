@@ -1,0 +1,18 @@
+SOURCE:=$(wildcard laba?.tex)
+NAME  :=$(subst .tex,,$(SOURCE))
+TESTSTR := 'Label(s) may have changed'
+RERUN =$(shell grep $(TESTSTR) $(NAME).log)
+
+ifeq ($(RERUN),)
+$(NAME).pdf: $(SOURCE) content.tex ../appendix/lsm.tex
+	@pdflatex $< && (grep -q $(TESTSTR) $(NAME).log && pdflatex $< || true)
+else
+force: 
+	@pdflatex $(SOURCE) && \
+	(grep -q $(TESTSTR) $(NAME).log && pdflatex $(SOURCE) || true)
+endif
+
+clean:
+	@echo "Cleaning PDF and LaTeX temporary files"
+	@rm -f $(NAME).pdf $(NAME).log $(NAME).out $(NAME).aux
+	

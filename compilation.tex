@@ -1,0 +1,77 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage{mathtext}         % если нужны русские буквы в формулах
+\usepackage[T2A]{fontenc}     % внутренняя T2A кодировка TeX
+\usepackage[koi8-r]{inputenc} % отражает кодировку текста документа
+\usepackage[russian]{babel}   % переносы - можно написать english,russian
+\language=0
+
+\textwidth 17cm
+\textheight 26cm
+\topmargin -2cm
+\oddsidemargin -0.5cm
+\evensidemargin 0cm
+\footskip 0.8cm
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+\newcommand{\instruction}[1]{\begin{center}\fbox{\parbox{0.9\textwidth}{\sf #1}}\end{center}}
+\newsavebox{\fmbox}
+\newenvironment{instruct}[1]{
+\begin{lrbox}{\fmbox}
+\begin{minipage}{0.9\textwidth}\sf\noindent\underline{#1}\\}
+{\end{minipage}
+\end{lrbox}
+\begin{center}
+\fbox{\usebox{\fmbox}}
+\end{center}}
+\newcommand{\Cs}{\mbox{${}^{137}\mathrm{Cs}$}}
+\newcommand{\Co}{\mbox{${}^{60}$Co}}
+\newcommand{\Npe}{N_\mathrm{p.e.}}
+\newcommand{\fe}{${}^{55}\mathrm{Fe}$}
+\newcommand{\sr}{${}^{90}\mathrm{Sr}$}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\bfseries
+\vspace*{0.4\textheight}
+{\LARGE Описание лабораторных работ\\[1ex]
+<<Ядерного практикума>>}
+\vfill
+ИЯФ СО РАН\\[1ex]
+Новосибирск\\[1ex]
+2013
+
+\vspace{5mm}
+{\normalsize Описание работ: \url{http://kedr.inp.nsk.su/\~{}skononov/nuclab\_man.pdf}}
+\end{center}
+\thispagestyle{empty}
+\end{titlepage}
+
+\renewcommand{\chaptername}{\Large Лабораторная работа \No}
+\renewcommand{\bibname}{\Large Список литературы}
+
+\chapter{\LARGE Годоскоп из стримерных трубок}
+\input{laba1/content}
+
+\chapter{\LARGE Гамма-спектрометр на основе сцинтилляционного счетчика}
+\input{laba2/content}
+
+\chapter{\LARGE Метод совпадений}
+\input{laba3/content}
+
+\chapter{\LARGE Газовый цилиндрический счётчик}
+\input{laba4/content}
+
+\addtocounter{chapter}{1}
+\chapter{\LARGE Гамма-спектрометр с детектором из особо чистого германия}
+\input{laba6/content}
+
+\appendix
+\chapter{\Large Метод наименьших квадратов}
+\input{appendix/lsm}
+
+\end{document}
