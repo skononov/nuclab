@@ -1,11 +1,11 @@
 NAME:=compilation
-SOURCES:=$(wildcard laba?/content.tex) appendix/lsm.tex
-SUBDIRS:=$(dir $(wildcard laba?/Makefile))
+SOURCES:=$(wildcard laba[12346]/content.tex) appendix/lsm.tex
+SUBDIRS:=$(dir $(wildcard laba[12346]/))
 
 TESTSTR := 'Label(s) may have changed'
 RERUN =$(shell grep $(TESTSTR) $(NAME).log)
 
-.PHONY: all $(NAME) $(SUBDIRS) tarball
+.PHONY: all $(NAME) $(SUBDIRS) tarball clean
 
 all: $(NAME) $(SUBDIRS)
 	
@@ -21,12 +21,12 @@ $(NAME):
 endif
 
 $(SUBDIRS):  
-	$(MAKE) -C $@
+	$(MAKE) -f ../Makefile.subdir -C $@
 	
 clean:
 	@echo "Cleaning PDF and LaTeX temporary files"
 	@rm -f $(NAME).pdf $(NAME).log $(NAME).out $(NAME).aux
-	@for d in $(SUBDIRS); do $(MAKE) -C $$d clean; done
+	@for d in $(SUBDIRS); do $(MAKE) -f ../Makefile.subdir -C $$d clean; done
 
 tarball: nuclab_src.tar.gz
 
@@ -37,3 +37,4 @@ PICS:=pics/ $(addsuffix pics/,$(SUBDIRS))
 nuclab_src.tar.gz: $(NAME).tex $(ALLSOURCES) $(MAKEFILES) $(PICS) nuclab_man.pdf
 	@echo "Creating source tarball: $@"
 	@tar -C ../ -zcvf $@ $(addprefix nuclab/,$^)
+
