@@ -30,11 +30,11 @@ clean:
 
 tarball: nuclab_src.tar.gz
 
-ALLSOURCES:=$(SOURCES) $(foreach dir,$(SUBDIRS),$(dir)$(dir:/=.tex)) 
-MAKEFILES:=Makefile Makefile.subdir $(wildcard laba?/Makefile)
-PICS:=pics/ $(addsuffix pics/,$(SUBDIRS))
+C_ALLSOURCES:=$(SOURCES) $(foreach dir,$(SUBDIRS),$(dir)$(dir:/=.tex)) 
+C_MAKEFILES:=Makefile Makefile.subdir $(wildcard laba?/Makefile)
+C_PICS:=pics/ $(addsuffix pics/,$(SUBDIRS))
 
-nuclab_src.tar.gz: $(NAME).tex $(ALLSOURCES) $(MAKEFILES) $(PICS) nuclab_man.pdf
+nuclab_src.tar.gz: $(NAME).tex $(C_ALLSOURCES) $(C_MAKEFILES) $(C_PICS) nuclab_man.pdf
 	@echo "Creating source tarball: $@"
 	@tar -C ../ -zcvf $@ $(addprefix nuclab/,$^)
 
